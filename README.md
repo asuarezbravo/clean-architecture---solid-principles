@@ -17,7 +17,9 @@ Clean Architecture, introduced by Robert C. Martin (Uncle Bob), is a software de
 2. **Use Cases (Application Layer):** These contain the business rules and logic specific to how the system should behave. This layer interacts with the entities to solve specific business problems. Use cases focus on what the system should do without being concerned about how it's implemented (UI, database, etc.).
 3. **Interface Adapters (Presentation Layer):** This layer is responsible for converting data from one form to another. It interacts with the user interface, database, or external systems, adapting inputs and outputs to match the needs of the core layers (entities and use cases).
 4. **Frameworks & Drivers (Infrastructure Layer):** This is the outermost layer, containing infrastructure-specific details, such as frameworks, databases, APIs, or external libraries. This layer is considered volatile and subject to frequent changes, so it should not affect the inner core layers.
+
 The key principle is that dependencies only flow inward. Inner layers should never depend on outer layers, but outer layers can depend on inner layers. This keeps the core logic free from the details of frameworks, databases, or external technologies.
+
 ![Alt text](./Clean_architecture.png "Clean Architecture")
 ---
 ### What are the SOLID Principles?

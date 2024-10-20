@@ -55,12 +55,29 @@ When combined, Clean Architecture and SOLID Principles create a powerful design 
 3. **Abstraction:** The DIP principle supports the idea of Clean Architecture’s inward flow of dependencies. Core logic depends on abstractions rather than concrete implementations, enabling easier swapping of infrastructure or UI components.
 4. **Modularization:** Following the SOLID principles helps modularize each layer of Clean Architecture. For example, by using the ISP, you avoid large, monolithic interfaces, keeping the code more manageable across layers.
 ---
-### Example: Applying Clean Architecture and SOLID to a Simple E-commerce Application
-- **Entities (Core):** A class Product contains the attributes and rules of what defines a valid product (e.g., price, stock, etc.).
-- **Use Cases (Application):** A ProcessOrder class handles the business logic for processing an order. It interacts with the Product entity to ensure there is enough stock before proceeding.
-- **Interface Adapters (Presentation):** This layer adapts the output from ProcessOrder for a user interface (web or mobile) or converts it into data for storage.
-- **Frameworks & Drivers (Infrastructure):** At this layer, you use a specific framework (e.g., a web framework like ASP.NET or Flask) or database (like PostgreSQL or MongoDB). These components can be swapped out without changing the business logic.
-By following SOLID principles, each class and module within these layers is designed with a clear responsibility, extensibility in mind, and strong adherence to abstractions rather than concrete implementations.
+### Example: Applying Clean Architecture and SOLID to a Simple Demo Project
+
+The project under the demo-project folder demonstrates how to build a simple **Todo API** using **Node.js** while applying **Clean Architecture** and **SOLID principles**. The project is structured in such a way that it separates core business logic from framework- and infrastructure-specific concerns, making the codebase easier to maintain, extend, and test.
+
+Here's an overview of the structure:
+
+```
+src/
+├── controllers/      # Handles incoming HTTP requests and responses
+│   └── TodoController.js
+├── entities/         # Core business entities (e.g., Todo)
+│   └── Todo.js
+├── repositories/     # Abstract interface and implementation for data access
+│   ├── TodoRepository.js
+│   └── ITodoRepository.js
+├── usecases/         # Business logic or "application services"
+│   ├── CreateTodo.js
+│   ├── GetTodos.js
+│   └── UpdateTodo.js
+├── infrastructure/   # Infrastructure details (e.g., database connection)
+│   └── Database.js
+└── index.js          # Application entry point and routing
+```
 ---
 ### Conclusion
 Combining Clean Architecture and SOLID principles creates a design approach that fosters scalability, maintainability, and flexibility. Clean Architecture ensures separation of concerns at the system level, while SOLID principles maintain good design practices at the class level. Together, they provide a structured way to build software systems that can adapt to change and grow over time while remaining robust and easy to understand.
